@@ -28,14 +28,25 @@ class AssertChecker(BaseChecker):
     USE_ASSERT_EQUAL = 'wrong-assert-should-be-assertequal'
     USE_ASSERT_IN = 'wrong-assert-should-be-assertin'
     USE_ASSERT_COMPARE = 'wrong-assert-should-be-assertcomparison'
-    msgs = {'C%d20' % BASE_ID:
-            ("%s is a comparison, use assertEqual.", USE_ASSERT_EQUAL, "Wrong assert used.",),
+    msgs = {
+        'C%d90' % BASE_ID: (
+            "%s is a comparison, use assertEqual.",
+            USE_ASSERT_EQUAL,
+             "Use assert(Not)Equal instead of assertTrue/False",
+        ),
 
-            'C%d21' % BASE_ID:
-            ("%s is an in statement, use assertIn.", USE_ASSERT_IN, "Wrong assert used.",),
+        'C%d91' % BASE_ID: (
+            "%s is an in statement, use assertIn.",
+            USE_ASSERT_IN,
+            "Use assert(Not)In instead of assertTrue/False.",
+        ),
 
-            'C%d22' % BASE_ID:
-            ("%s is a comparison, use assertGreater or assertLess.", USE_ASSERT_COMPARE, "Wrong assert used.",)}
+        'C%d92' % BASE_ID: (
+            "%s is a comparison, use assertGreater or assertLess.",
+            USE_ASSERT_COMPARE,
+            "Use assertGreater/Less instead of assertTrue/False",
+        ),
+    }
 
     name = 'assert-checker'
 
